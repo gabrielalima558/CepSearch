@@ -6,4 +6,6 @@ import com.example.gabriela.cepsearchapp.repository.CepRepository
 class CepViewModel(private val repository: CepRepository): ViewModel() {
 
     fun searchCep(cep: String) = repository.searchCep(cep)
+
+    fun infoAddress() = repository.addressData
 }

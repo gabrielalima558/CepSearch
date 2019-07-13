@@ -23,7 +23,8 @@ class CepApi(retrofit: Retrofit) {
             }
 
             override fun onResponse(call: Call<Address>, response: Response<Address>) {
-                Log.e("TESSSTEEEE", response.body().toString())
+                response.body()?.let(callback)
+                Log.e("code", response.code().toString())
             }
         })
 
