@@ -27,7 +27,11 @@ class MainActivity : AppCompatActivity() {
                 list?.let {
                     itens = list
                     Log.e("TESTANDO", itens.cep)
-                    textView.text =itens.logradouro
+                    textViewLogradouro.text = itens.logradouro
+                    textViewComplemento.text = itens.complemento
+                    textViewBairro.text = itens.bairro
+                    textViewLocalidade.text = itens.localidade
+                    textViewUf.text = itens.uf
                 }
             })
         }

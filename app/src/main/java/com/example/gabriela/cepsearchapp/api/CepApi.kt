@@ -15,7 +15,7 @@ class CepApi(retrofit: Retrofit) {
 
 
     fun getAddress(cep: String, callback: (Address) -> Unit ){
-        val searchCep = service.getAddress(cep.toString())
+        val searchCep = service.getAddress(cep)
 
         searchCep.enqueue(object: Callback<Address>{
             override fun onFailure(call: Call<Address>, t: Throwable) {
