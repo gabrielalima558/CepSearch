@@ -34,12 +34,11 @@ class MainActivity : AppCompatActivity() {
             viewModel.infoAddress().observe(this, Observer { list ->
                 list?.let {
                     progressDialog.dismiss()
-                    itens = list
-                    textViewLogradouro.text = itens.logradouro
-                    textViewComplemento.text = itens.complemento
-                    textViewBairro.text = itens.bairro
-                    textViewLocalidade.text = itens.localidade
-                    textViewUf.text = itens.uf
+                    textViewLogradouro.text = list.logradouro
+                    textViewComplemento.text = list.complemento
+                    textViewBairro.text = list.bairro
+                    textViewLocalidade.text = list.localidade
+                    textViewUf.text = list.uf
                 }
             })
         }
