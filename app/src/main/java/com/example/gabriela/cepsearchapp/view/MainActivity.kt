@@ -14,7 +14,6 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var itens: Address
     private val viewModel: CepViewModel by lazy {
         ViewModelProviders.of(this, ViewModelFactory).get(CepViewModel::class.java)
     }
