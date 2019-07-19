@@ -1,10 +1,12 @@
-package com.example.gabriela.cepsearchapp
+package com.example.gabriela.cepsearchapp.view
 
+import android.app.ProgressDialog
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import com.example.gabriela.cepsearchapp.R
 import com.example.gabriela.cepsearchapp.model.Address
 import com.example.gabriela.cepsearchapp.viewmodel.CepViewModel
 import com.example.gabriela.cepsearchapp.viewmodel.ViewModelFactory
@@ -22,11 +24,17 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         buttonSearch.setOnClickListener {
+            val progressDialog = ProgressDialog(this).apply {
+              setTitle("Wait a minute...")
+              setMessage("Searching for your address...")
+              setCancelable(true)
+            }
+            progressDialog.show()
             viewModel.searchCep(editTextCep.text.toString())
             viewModel.infoAddress().observe(this, Observer { list ->
                 list?.let {
+                    progressDialog.dismiss()
                     itens = list
-                    Log.e("TESTANDO", itens.cep)
                     textViewLogradouro.text = itens.logradouro
                     textViewComplemento.text = itens.complemento
                     textViewBairro.text = itens.bairro
